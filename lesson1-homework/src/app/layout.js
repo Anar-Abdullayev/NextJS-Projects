@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header>
+          <nav className="flex justify-center space-x-4 p-4 gap-5">
+            <Link href="/">Home</Link> |<Link href="/about">About</Link> |
+            <Link href="/news">News</Link> |<Link href="/contact">Contact</Link>{" "}
+            |
+          </nav>
+        </header>
         {children}
+        <footer className="flex justify-center p-4">
+          <p>© 2023 My Next.js App</p>
+        </footer>
       </body>
     </html>
   );
